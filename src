@@ -1,0 +1,64 @@
+import math
+
+def show_menu():
+    print("\n SMART CALCULATOR ")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Power (x^y)")
+    print("6. Square Root (√x)")
+    print("7. Modulus (%)")
+    print("8. Exit")
+
+def calculator():
+    while True:
+        show_menu()
+        
+        choice = input("Enter your choice (1-8): ")
+        
+        if choice == '8':
+            print("Exiting calculator. Goodbye!")
+            break
+        
+        try:
+            if choice in ['1', '2', '3', '4', '5', '7']:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+            
+            if choice == '1':
+                print("Result:", num1 + num2)
+            
+            elif choice == '2':
+                print("Result:", num1 - num2)
+            
+            elif choice == '3':
+                print("Result:", num1 * num2)
+            
+            elif choice == '4':
+                if num2 == 0:
+                    print("Error: Division by zero!")
+                else:
+                    print("Result:", num1 / num2)
+            
+            elif choice == '5':
+                print("Result:", math.pow(num1, num2))
+            
+            elif choice == '6':
+                num = float(input("Enter number: "))
+                if num < 0:
+                    print("Error: Cannot take square root of negative number!")
+                else:
+                    print("Result:", math.sqrt(num))
+            
+            elif choice == '7':
+                print("Result:", num1 % num2)
+            
+            else:
+                print("Invalid choice! Please try again.")
+        
+        except ValueError:
+            print("Error: Invalid input! Please enter numbers only.")
+
+# Run the calculator
+calculator()
